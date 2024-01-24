@@ -1,6 +1,9 @@
 import fs from 'fs';
 import { getUsers } from './users/getUsers.js';
 import { getTodo } from './todo/getTodo.js';
+import { serveDocumentation } from './documentation/serveDocumentation.js';
+import { addUser } from './users/addUser.js';
+import { setCORSHeaders } from '../utils.js';
 
 // export function handleRequest(req, res) {
 // 	// res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -24,15 +27,24 @@ import { getTodo } from './todo/getTodo.js';
 const routes = {
 	'/api/users': {
 		GET: getUsers,
-		// POST: addUser,
+		POST: addUser,
 	},
 	'/api/todo': {
-		'GET': getTodo
-	}
+		GET: getTodo,
+	},
+	'/doc': {
+		GET: serveDocumentation,
+	},
 };
 
 export default function controller(req, res) {
 	const { method, url } = req;
+	setCORSHeaders(res);
+	if (req.method === 'OPTIONS') {
+		res.writeHead(204);
+		res.end();
+		return;
+	}
 
 	const handler = routes[url] && routes[url][method];
 

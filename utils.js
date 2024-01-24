@@ -1,4 +1,6 @@
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 /**
  * Sprawdza, czy plik istnieje i czy spełnia określone warunki dostępu.
@@ -21,3 +23,15 @@ export const isFileExist = (path, mode = fs.constants.F_OK) => {
 		});
 	});
 };
+
+export const getDirname = url => {
+	const __filename = fileURLToPath(url);
+
+	return path.dirname(__filename);
+};
+
+export function setCORSHeaders(res) {
+	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}

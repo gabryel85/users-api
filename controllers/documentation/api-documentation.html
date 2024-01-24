@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="text-white text-lg">
+                    API Documentation
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto my-8">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h1 class="text-xl mb-4">API Overview</h1>
+            <p>This document provides information about the API endpoints available in our service.</p>
+
+            <h2 class="text-lg mt-6 mb-2">API Endpoints</h2>
+
+            <div class="mb-4">
+                <h3 class="text-md mb-2">1. <code>/api/users</code></h3>
+                <p>Supported Methods:</p>
+                <ul class="list-disc ml-6">
+                    <li><strong>GET</strong>: Retrieve a list of users</li>
+                    <li><strong>POST</strong>: Create a new user</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-md mb-2">User Interface</h3>
+                <code class="block bg-gray-200 p-2">
+                    export interface User {<br>
+                    &nbsp;&nbsp;id: number;<br>
+                    &nbsp;&nbsp;name: string;<br>
+                    &nbsp;&nbsp;username: string;<br>
+                    &nbsp;&nbsp;email: string;<br>
+                    &nbsp;&nbsp;phone: string;<br>
+                    }
+                </code>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
